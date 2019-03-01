@@ -12,16 +12,19 @@ mongoose.connection.once('open',function()
 });
 
 ////including embedded documents into the document
-var Customer=require('mongoose').model('Customer').schema
-var Equipment=require('mongoose').model('Equipment').schema
+var Complaint=require('mongoose').model('Complaint').schema
+var Staff=require('mongoose').model('Staff').schema
+
 
 var complaintSchema= new Schema (
     {
-       Location:String,
-       Defect:String,
-       Picture:String,
-       Customer:[Customer],
-       Equipment:[Equipment]
+      ReportId:String,
+      StartTime:Date,
+      EndTime:Date,
+      Cost:Number,
+      JobTicket:String,
+      Complaint:[Complaint],
+      Staff:[Staff]
     }
 )
 
